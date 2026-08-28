@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
-    
+
+## [v3.0.1] 28-08-2026
+### test git workflow
+- testing mirror direction with branch
+
 ## [ [v3.0.0](https://github.com/svetoslav-vladov/FriendBook-ALL/tree/v3.0.0) ] 5-05-2025
 ### Added
 - tag for v3
