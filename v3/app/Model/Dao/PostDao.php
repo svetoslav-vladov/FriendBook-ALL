@@ -6,9 +6,9 @@
  * Time: 12:35
  */
 
-namespace model\Dao;
+namespace Model\Dao;
 
-use model\Post;
+use Model\Post;
 
 class PostDao {
     private function __construct() {

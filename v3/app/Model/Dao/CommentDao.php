@@ -1,7 +1,7 @@
 <?php
-namespace model\Dao;
+namespace Model\Dao;
 
-use model\Comment;
+use Model\Comment;
 
 class CommentDao {
     private function __construct() {

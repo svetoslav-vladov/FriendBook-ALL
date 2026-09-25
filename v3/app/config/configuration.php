@@ -1,14 +1,10 @@
 <?php
     
-    $httpProtocol = isset($_SERVER['HTTPS']) ? "https" : "http";
-    /*
-        Example:
-            - example.com
-            - subdomain.example.com
-            - localhost
-    */
-    $siteUrl = "localhost";
-    $hostUrl = $httpProtocol. '://' . $siteUrl;
+    $httpProtocol = $_SERVER['HTTP_X_FORWARDED_PROTO']
+        ?? (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http');
+
+    $siteUrl = $_SERVER['HTTP_HOST'];
+    $hostUrl = $httpProtocol . '://' . $siteUrl;
 
     //app root
     define('APP_ROOT', dirname(dirname(__FILE__)));

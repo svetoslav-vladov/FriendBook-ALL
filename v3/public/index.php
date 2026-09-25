@@ -1,14 +1,14 @@
 <?php
 
-require_once '../app/bootstrap.php';
+require_once dirname(__DIR__) . '/app/bootstrap.php';
 
 spl_autoload_register(function ($class) {
-
-    $class = str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
+    $class = ltrim($class, '\\');
+    $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
+    $class .= '.php';
 
     require_once APP_ROOT . DIRECTORY_SEPARATOR . $class;
 });
-
 
 header('Content-Type: text/html; charset=UTF-8');
 
@@ -23,14 +23,18 @@ else{
     $methodName = isset($_GET['action']) ? $_GET['action'] : 'index';
 }
 
-$controllerClassName = '\\controller\\' . ucfirst($controllerName) . ucfirst('controller');
+$controllerClassName = '\\Controller\\' . ucfirst($controllerName) . ucfirst('controller');
+
+$controllerFile = APP_ROOT . DIRECTORY_SEPARATOR .
+    str_replace('\\', DIRECTORY_SEPARATOR, $controllerClassName) . '.php';
+// var_dump($controllerFile);
 
 if(isset($_GET['err'])){
     $error = htmlentities($_GET['err']);
-    $controller = new controller\IndexController();
+    $controller = new Controller\IndexController();
     $controller->error($error);
 }
-elseif(!file_exists(APP_ROOT .$controllerClassName . ".php")){
+elseif(!file_exists($controllerFile)){
     $fileNotFound = true;
 }
 elseif (class_exists($controllerClassName)) {
@@ -39,16 +43,16 @@ elseif (class_exists($controllerClassName)) {
     if(!(($controllerName === "index" || $controllerName === "user")  &&
         ($methodName === "index" || $methodName === "login" || $methodName === "register" ))){
         if(!isset($_SESSION["logged"])){
-            $controller = new controller\IndexController();
+            $controller = new Controller\IndexController();
             $controller->error(401);
         }
         else{
             if (method_exists($contoller, $methodName)) {
-                $controller = new controller\IndexController();
+                $controller = new Controller\IndexController();
                 $contoller->$methodName();
             }
             else{
-                $controller = new controller\IndexController();
+                $controller = new Controller\IndexController();
                 $controller->error(404);
             }
         }
@@ -61,7 +65,7 @@ elseif (class_exists($controllerClassName)) {
         $contoller->$methodName();
     }
     else {
-        $controller = new controller\IndexController();
+        $controller = new Controller\IndexController();
         $controller->login();
     }
 }

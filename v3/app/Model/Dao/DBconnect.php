@@ -1,17 +1,17 @@
 <?php
 
-namespace model\Dao;
+namespace Model\Dao;
 
 class DBconnect {
 
     private static $instance;
     private $pdo;
 
-    const DB_IP = "127.0.0.1";
+    const DB_IP = "db";
     const DB_PORT = "3306";
-    const DB_NAME = "friendbook_v3";
-    const DB_USER = "friendbook";
-    const DB_PASS = "test123";
+    const DB_NAME = "app";
+    const DB_USER = "app";
+    const DB_PASS = "app";
 
     private function __construct() {
         try {

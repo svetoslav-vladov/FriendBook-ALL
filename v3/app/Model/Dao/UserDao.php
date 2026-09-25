@@ -1,9 +1,9 @@
 <?php
 
-namespace model\Dao;
+namespace Model\Dao;
 
-use model\Picture;
-use \model\User;
+use Model\Picture;
+use Model\User;
 use function Sodium\add;
 
 class UserDao
@@ -17,7 +17,7 @@ class UserDao
 
     const INSERT_SINGLE_PHOTO = "INSERT INTO user_photos (user_id, img_url) VALUES (?,?)";
 
-    const CHECK_FOR_EMAIL = "SELECT COUNT(*) as row FROM users WHERE email = ?";
+    const CHECK_FOR_EMAIL = "SELECT COUNT(*) as `row` FROM users WHERE email = ?";
 
     const GET_PROFILE_IMAGES = "SELECT img_url FROM user_photos WHERE user_id = ? AND album_id IS NULL LIMIT 16;";
 

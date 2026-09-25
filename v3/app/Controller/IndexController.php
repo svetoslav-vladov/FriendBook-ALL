@@ -1,12 +1,12 @@
 <?php
 
-namespace controller;
+namespace Controller;
 
-use \model\User;
-use model\Dao\PostDao;
+use Model\User;
+use Model\Dao\PostDao;
 use Model\Dao\UserDao;
 
-class IndexController extends \controller\BaseController
+class IndexController extends BaseController
 {
 
     public function login(){
