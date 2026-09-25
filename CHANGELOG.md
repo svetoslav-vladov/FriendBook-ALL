@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
-    
+## [ [v3.1.0](https://github.com/svetoslav-vladov/FriendBook-ALL/tree/v3.1.0) ] 25-09-2026
+### Added
+- docker migration for v3 docker-compose.yml and Dockerfile
+- folder naming change following namespaces
+- configuration changes regarding host keeping it independent
+- db .sql file is imported during from docker
+
 ## [ [v3.0.0](https://github.com/svetoslav-vladov/FriendBook-ALL/tree/v3.0.0) ] 5-05-2025
 ### Added
 - tag for v3

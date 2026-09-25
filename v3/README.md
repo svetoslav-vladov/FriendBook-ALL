@@ -11,9 +11,6 @@
 - available users:
 	test1@gmail.com, test2@gmail.com with password testing123 for both
 
-## Configuration:
-- app/config/configuration.php:
-	set domain name: $siteUrl
-
-- app/model/Dao/DBconnect.php:
-	set database credentials
+## Docker
+- docker-compose up --build or docker compose up --build
+- live on localhost:1004

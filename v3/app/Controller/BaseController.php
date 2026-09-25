@@ -1,8 +1,8 @@
 <?php
 
-namespace controller;
+namespace Controller;
 
-use model\Dao\UserDao;
+use Model\Dao\UserDao;
 use Model\Picture;
 use Model\Thumbnail;
 
